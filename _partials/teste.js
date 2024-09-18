@@ -1,3 +1,5 @@
+/*
+
 //  Script para verificar se ja tem produtos no LocalStorage, se sim 
 // pega esses produtos e adiciona mais um, senao seta "produtos e insere os produtos"
 
@@ -29,3 +31,11 @@ if (localStorage.getItem("produtos") == null) {
 console.log(products);
 
 // console.log(localStorage.getItem("teste"));
+*/
+
+const cadastrar_produto = require("./cadastrar_produto");
+cadastrar_produto();
+
+
+
+

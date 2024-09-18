@@ -3,7 +3,7 @@ function cadastrar_produto() {
 
 
   const { LocalStorage } = require('node-localstorage');
-  const localStorage = new LocalStorage("./storage");
+  const localStorage = new LocalStorage("./_partials/storage");
 
   const prompt = require("prompt-sync")();
 
@@ -55,22 +55,28 @@ function cadastrar_produto() {
     // Criação do objeto produto
     var product = { code: inptCode, name: inptName, type: inptType, quantity: inptQuantity };
     // console.log({ code: inptCode, name: inptName, type: inptType, quantity: inptQuantity });
-    produtos.push(product);
+
+    if (localStorage.getItem("produtos") == null) {
+      var products = [];
+      products.push(product)
+      localStorage.setItem("produtos", JSON.stringify(products));
+    } else if (localStorage.getItem("produtos") != null) {
+      // console.log("Já possui produtos cadastrados no estoque!");
+      var products = JSON.parse(localStorage.getItem("produtos"));
+      products.push(product);
+      localStorage.setItem("produtos", JSON.stringify(products));
+
+      // console.debug(products);
+
+    }
+
+    // produtos.push(product);
     prompt("Cadastrar novo produto? (s/n) ").toLocaleLowerCase() == "s" ? "" : controle = false;
   }
-  
-  localStorage.setItem('produtos', JSON.stringify(produtos));
+
+  // localStorage.setItem('produtos', JSON.stringify(produtos));
   // console.log(produtos);
-}
-
-// Função para listar produtos do estoque
-function listar_produtos() {
-  const { LocalStorage } = require('node-localstorage');
-  const localStorage = new LocalStorage("./_partials/storage");
-
-  console.log(JSON.parse(localStorage.getItem("produtos")));
 }
 // cadastrar_produto();
 
 module.exports = cadastrar_produto;
-module.exports = listar_produtos;
