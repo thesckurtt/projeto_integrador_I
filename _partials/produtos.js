@@ -58,11 +58,19 @@ function cadastrar_produto() {
     produtos.push(product);
     prompt("Cadastrar novo produto? (s/n) ").toLocaleLowerCase() == "s" ? "" : controle = false;
   }
-
+  
   localStorage.setItem('produtos', JSON.stringify(produtos));
   // console.log(produtos);
 }
 
+// Função para listar produtos do estoque
+function listar_produtos() {
+  const { LocalStorage } = require('node-localstorage');
+  const localStorage = new LocalStorage("./_partials/storage");
+
+  console.log(JSON.parse(localStorage.getItem("produtos")));
+}
 // cadastrar_produto();
 
 module.exports = cadastrar_produto;
+module.exports = listar_produtos;
