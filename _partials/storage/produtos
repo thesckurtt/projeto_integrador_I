@@ -1,1 +1,1 @@
-[{"code":"PROD_0001","name":"Arroz","type":"kg","quantity":10},{"code":"PROD_0002","name":"Feijão","type":"kg","quantity":2},{"code":"PROD_0003","name":"Bife","type":"unit","quantity":44}]
+[{"code":"PROD_0001","name":"Arroz","type":"kg","quantity":10},{"code":"PROD_0002","name":"Feijão","type":"kg","quantity":2},{"code":"PROD_0003","name":"Bife","type":"kg","quantity":20},{"code":"PROD_0001","name":"Massa","type":"kg","quantity":3},{"code":"PROD_0004","name":"Ovos","type":"unit","quantity":12},{"code":"PROD_0990","name":"Salsicha","type":"unit","quantity":4}]

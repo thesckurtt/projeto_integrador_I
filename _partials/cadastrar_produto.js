@@ -12,7 +12,7 @@ function cadastrar_produto() {
   var controle = true;
 
   while (controle) {
-    console.log("- Cadastrar novo produto -");
+    console.log("\033[33m - Cadastrar novo produto - \u001b[0m");
 
     // Código do roduto
     while (true) {
