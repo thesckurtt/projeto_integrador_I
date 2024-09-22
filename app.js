@@ -13,6 +13,7 @@ const listar_produtos = require("./_partials/listar_produtos");
 const cadastrar_produto = require("./_partials/cadastrar_produto");
 const listar_pratos = require("./_partials/listar_pratos");
 var produtos = require("./_partials/produtos");
+const calcular_qnt_pratos = require("./_partials/algoritmo_quantidade_pratos");
 
 // var teste = listar_produtos();
 
@@ -47,7 +48,7 @@ while (controle) {
       }
     } else if (inptOption == 2) {
       while (true) {
-        console.log("\033[33m Listar pratos (1) - Sair (2) \u001b[0m");
+        console.log("\033[33m Listar pratos (1) - Verificar disponibilidade de prato (2) - Sair (3) \u001b[0m");
         var inptOption = Number(prompt("Digite a opção para entrar no menu: "));
         if (inptOption == 1) {
           // console.log(listar_pratos);
@@ -70,6 +71,17 @@ while (controle) {
           })
           break;
         } else if (inptOption == 2) {
+          var inptCodePrato = prompt("Digite o código do prato: ");
+          let qnt_prato = calcular_qnt_pratos(inptCodePrato);
+          if (qnt_prato > 1) {
+            console.log(`Você pode fazer ${qnt_prato} pratos`)
+          } else if (qnt_prato == 0) {
+            cosole.log("Esse prato está indisponível no momento!");
+          } else if (qnt_prato == 1) {
+            console.log(`Você pode fazer ${qnt_prato} prato`);
+          }
+          break;
+        } else if (inptOption == 3) {
           break;
         }
       }
